@@ -1,15 +1,21 @@
 # Cards service - QA configuration
-server:
-  port: 9201
+spring:
+  application:
+    name: cards
+  datasource:
+    url: jdbc:h2:mem:cards
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show_sql: true
 
-build:
-  version: "2.0"
+server:
+  port: 9001
 
 cards:
-  message: "Welcome to EazyBank cards related QA APIs "
-  contactDetails:
-    name: "Cherryl Pankaj - QA Lead"
-    email: "cherryl@eazybank.com"
-  onCallSupport:
-    - (310) 875-4367
-    - (201) 236-1267
+  default-card-type: Credit Card
+  default-card-limit: 100000
+
